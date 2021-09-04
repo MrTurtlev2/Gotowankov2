@@ -8,62 +8,70 @@ import CookingIcon from '../images/cookingIcon.png';
 import HeartIcon from '../images/heartIcon.png';
 import SettingsIcon from '../images/settingsIcon.png';
 import FavouritePage from "../pages/Favourite";
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 function TabNavigation() {
     return (
-        <Tab.Navigator
-            tabBarOptions={{
-                showLabel: false,
-                style: {
-                    backgroundColor: '#50C878',
-                    height: 90,
-                }
-            }}
-        >
-            <Tab.Screen name='MainPage' component={MainPage}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <NavItemWrapper>
-                            <NavImage source={CookingIcon}
-                                style= {{
-                                    tintColor: focused ? 'red' : 'grey'
-                                }}
-                            />
-                            <Text>przepisy</Text>
-                        </NavItemWrapper>
-                    )
+            <Tab.Navigator
+                tabBarPosition="bottom"
+                tabBarOptions={{
+                    showIcon: true,
+                    showLabel: false,
+                    labelStyle: { fontSize: 12 },
+                    tabStyle: { zIndex: 9999, },
+                    activeTintColor: 'blue',
+                    inactiveTintColor: 'grey',
+                    iconStyle: {height: 25, width: 25,},
+                    style: {  backgroundColor: 'powderblue'},
                 }}
-            />
-            <Tab.Screen name='FavouritePage' component={FavouritePage}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <NavItemWrapper>
-                            <NavImage source={HeartIcon}
-                                      style= {{
-                                          tintColor: focused ? 'red' : 'grey'
-                                      }}
-                            />
-                            <Text>ulubione</Text>
-                        </NavItemWrapper>
-                    )
-                }}
-            />
-            <Tab.Screen name='SettingsPage' component={SettingsPage}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <NavItemWrapper>
-                            <NavImage source={SettingsIcon}
-                                      style= {{
-                                          tintColor: focused ? '#71797E' : 'white'
-                                      }}
-                            />
-                            <Text>ustawienia</Text>
-                        </NavItemWrapper>
-                    )
-                }}
-            />
+            >
+                <Tab.Screen name="MainPage" component={MainPage}
+                    options={{
+                        tabBarIcon: ({focused}) => (
+                            <NavItemWrapper>
+                                <NavImage
+                                    source={require('../images/cookingIcon.png')}
+                                    style={{
+                                        tintColor: focused ? 'black' : 'grey',
+                                    }}
+                                />
+                                {/*<Text>Home</Text>*/}
+                            </NavItemWrapper>
+                        )
+                    }}
+                />
+                <Tab.Screen name="FavouritePage" component={FavouritePage}
+                    options={{
+                        tabBarIcon: ({focused}) => (
+                            <NavItemWrapper>
+                                <NavImage
+                                    source={require('../images/heartIcon.png')}
+                                    style={{
+                                        tintColor: focused ? 'black' : 'grey',
+                                    }}
+                                />
+                                {/*<Text>Home</Text>*/}
+                            </NavItemWrapper>
+                        )
+                    }}
+                />
+                <Tab.Screen name="SettingsPage" component={SettingsPage}
+                    options={{
+                        tabBarIcon: ({focused}) => (
+                            <NavItemWrapper>
+                                <NavImage
+                                    source={require('../images/settingsIcon.png')}
+                                    style={{
+                                        tintColor: focused ? 'black' : 'grey',
+                                    }}
+                                />
+                                {/*<Text>Home</Text>*/}
+                            </NavItemWrapper>
+                        )
+                    }}
+                />
 
         </Tab.Navigator>
     );
