@@ -1,12 +1,8 @@
 import MainPage from "../pages/MainPage";
 import SettingsPage from "../pages/SettingsPage";
 import React from "react";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import styled from "styled-components";
-import {Image, Text, View} from "react-native";
-import CookingIcon from '../images/cookingIcon.png';
-import HeartIcon from '../images/heartIcon.png';
-import SettingsIcon from '../images/settingsIcon.png';
+import {Image, View} from "react-native";
 import FavouritePage from "../pages/Favourite";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 

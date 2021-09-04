@@ -1,4 +1,4 @@
-import {View, Text} from "react-native";
+import {View, Text, ScrollView} from "react-native";
 import React from "react";
 
 const StackNavigator = ({route}) => {
@@ -6,14 +6,19 @@ const StackNavigator = ({route}) => {
 const {recipe} = route.params;
 
     return (
-        <View>
+        <ScrollView>
+            <View>
             <Text>
                 {recipe?.title}
             </Text>
             <Text>
                 {recipe?.description}
             </Text>
+            <Text>
+                {recipe?.image}
+            </Text>
         </View>
+        </ScrollView>
     )
 }
 export default StackNavigator
